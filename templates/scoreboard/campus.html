@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>{% trans %}Scoreboard{% endtrans %} - {% trans %}Campus{% endtrans %}</h1>
+  </div>
+</div>
+<div class="container" style="max-width: 869px">
+  {% include "components/errors.html" %}
+  <div class="row p-3">
+    <div class="col-12">
+      <div class="row justify-content-md-center justify-content-sm-center">
+        <div class="col-4 col-sm-3 col-md-2 podium podium-2 text-center">
+          <div class="img-container">
+            <svg>
+              <use href="/themes/42ctf/static/img/logo/{{ podium[1][1]['campus_slug'] }}.svg#logo"></use>
+            </svg>
+          </div>
+          <div class="txt-container">
+            <h3>#2</h3>
+            <p>
+              {{ podium[1][1]["total_score"] }} pts
+              <br>
+              <a href="{{ podium[1][1]['campus_url'] }}">{{ podium[1][1]['campus_name'] }}</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-4 col-sm-3 col-md-2 podium podium-1 text-center">
+          <div class="img-container">
+            <svg>
+              <use href="/themes/42ctf/static/img/logo/{{ podium[0][1]['campus_slug'] }}.svg#logo" class="img-container"></use>
+            </svg>
+          </div>
+          <div class="txt-container">
+            <h3>#1</h3>
+            <p>
+              {{ podium[0][1]["total_score"] }} pts
+              <br>
+              <a href="{{ podium[0][1]['campus_url'] }}">{{ podium[0][1]['campus_name'] }}</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-4 col-sm-3 col-md-2 podium podium-3 text-center">
+          <div class="img-container">
+            <svg>
+              <use href="/themes/42ctf/static/img/logo/{{ podium[2][1]['campus_slug'] }}.svg#logo"></use>
+            </svg>
+          </div>
+          <div class="txt-container">
+            <h3>#3</h3>
+            <p>
+              {{ podium[2][1]["total_score"] }} pts
+              <br>
+              <a href="{{ podium[2][1]['campus_url'] }}">{{ podium[2][1]['campus_name'] }}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="scoreboard" class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <td style="width: 10px">
+            <b>{% trans %}Place{% endtrans %}</b>
+          </td>
+          <td>
+            <b>{% trans %}Campus{% endtrans %}</b>
+          </td>
+          <td>
+            <b>{% trans %}Score{% endtrans %}</b>
+          </td>
+        </tr>
+        </thead>
+
+        <tbody>
+          {% for campus in campuses %}
+          <tr class="podium-{{ loop.index0 + 1 }}">
+            <th scope="row" class="text-center">{{ loop.index0 + 1 }}</th>
+            <td>
+              <a>{{ campus[1]['campus_name'] }}</a>
+            </td>
+            <td>{{ campus[1]['total_score'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
