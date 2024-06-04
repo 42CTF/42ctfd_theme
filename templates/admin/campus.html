@@ -1,0 +1,75 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>Campus Editor</h1>
+  </div>
+</div>
+<div class="container" style="max-width: 720px !important">
+  <div role="tabpanel" class="tab-pane config-section active" id="campuses">
+    <h5>Campuses</h5>
+    <div id="campuses-list" class="py-3" x-data="CampusList">
+      <template x-for="campus in campuses">
+        <div class="mb-5">
+          <div class="border-bottom">
+            <div>
+              <button type="button" class="close float-right" aria-label="Close" x-on:click="deleteCampus(campus)">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <div class="form-group">
+                  <label>Campus Name</label>
+                  <input type="text" class="form-control" x-model="campus.name">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Campus Description</label>
+                  <input type="text" class="form-control" x-model="campus.description">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Slug</label>
+                  <input type="text" class="form-control" x-model="campus.slug">
+                  <small class="form-text text-muted">Slug name</small>
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-md-12">
+                <div class="d-block">
+                  <button
+                      class="btn btn-sm btn-success btn-outlined float-right"
+                      type="button"
+                      x-on:click="saveCampus(campus)"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-sm btn-success btn-outlined m-auto" type="button" x-on:click="addCampus()">
+            Add New Campus
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ Assets.js("assets/js/campus/editor.js") }}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+{% endblock %}

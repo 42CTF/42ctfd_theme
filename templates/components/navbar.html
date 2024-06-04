@@ -47,11 +47,20 @@
         {% endif %}
 
         {% if Configs.account_visibility != 'admins' and Configs.score_visibility != 'admins' %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('scoreboard.listing') }}">
-              {% trans %}Scoreboard{% endtrans %}
-            </a>
-          </li>
+            <div class="dropdown nav-item">
+                <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% trans %}Scoreboard{% endtrans %}
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url_for('scoreboard.global') }}">
+                        {% trans %}General{% endtrans %}
+                    </a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('scoreboard.campus') }}">
+                        {% trans %}Campuses{% endtrans %}
+                    </a></li>
+                </ul>
+            </div>
         {% endif %}
 
         <li class="nav-item">

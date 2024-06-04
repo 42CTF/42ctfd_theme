@@ -63,6 +63,7 @@ export default defineConfig({
         users_private: resolve(__dirname, "assets/js/users/private.js"),
         users_list: resolve(__dirname, "assets/js/users/list.js"),
         main: resolve(__dirname, "assets/scss/main.scss"),
+        campus_editor: resolve(__dirname, "assets/js/campus/editor.js")
       },
     },
   },
