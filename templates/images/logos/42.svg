@@ -1,0 +1,8 @@
+<svg class="img-fluid" id="outputsvg" xmlns="http://www.w3.org/2000/svg" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: 50% 50%; cursor: move; transition: transform 200ms ease-in-out 0s;" width="254" height="184" viewBox="0 0 2540 1840">
+  <g id="l35NSL9WvAi1Hb2GB0uhl1H" fill="{{ color }}" style="transform: none;">
+    <g>
+      <path id="pseAaeKCD" d="M948 1548 l-3 -223 -440 -2 -440 -2 -3 -178 -2 -178 443 -443 442 -442 217 2 217 3 -436 437 -435 438 441 0 441 0 0 405 0 405 -220 0 -220 0 -2 -222z"></path>
+      <path id="pHwYaoMzq" d="M1580 1187 l0 -222 225 -225 225 -225 0 -212 c0 -117 -3 -213 -8 -213 -4 0 -102 94 -217 210 -115 116 -213 210 -217 210 -5 0 -8 -97 -8 -215 l0 -215 445 0 445 0 0 223 0 222 -220 220 -220 220 0 220 0 220 220 -220 220 -220 0 223 0 222 -445 0 -445 0 0 -223z"></path>
+    </g>
+  </g>
+</svg>
